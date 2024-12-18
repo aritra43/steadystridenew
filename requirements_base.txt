@@ -1,0 +1,7 @@
+numpy
+pandas
+pickle5
+scikit-learn
+fastapi
+httpx
+uvicorn
