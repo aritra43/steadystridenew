@@ -323,12 +323,13 @@
         async function connectToDevice() {
             try {
                 bluetoothDevice = await navigator.bluetooth.requestDevice({
-                    filters: [
-                        { namePrefix: 'Steady' },
-                        { namePrefix: 'steady' },
-                        { services: ['19b10000-e8f2-537e-4f6c-d104768a1214'] }
-                    ],
-                    optionalServices: ['19b10000-e8f2-537e-4f6c-d104768a1214']
+                    acceptAllDevices : 'True'
+                    // filters: [
+                    //     { namePrefix: 'Steady' },
+                    //     { namePrefix: 'steady' },
+                    //     { services: ['19b10000-e8f2-537e-4f6c-d104768a1214'] }
+                    // ],
+                    // optionalServices: ['19b10000-e8f2-537e-4f6c-d104768a1214']
                 });
 
                 const server = await bluetoothDevice.gatt.connect();
