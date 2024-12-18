@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SteadyStride Monitor</title>
+    <link rel="stylesheet" href="output.css">
     <!-- Add Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Add Font Awesome -->
@@ -129,6 +130,10 @@
             <button class="btn" id="connectButton">
                 <i class="fas fa-bluetooth"></i>
                 Connect Device
+            </button>
+            <button class="btn mt-10" id="connectButton">
+                <i class="fas fa-bluetooth"></i>
+                <a href="home.html">Home Page</a>
             </button>
         </div>
 
@@ -323,7 +328,7 @@
         async function connectToDevice() {
             try {
                 bluetoothDevice = await navigator.bluetooth.requestDevice({
-                    acceptAllDevices : 'True'
+                    acceptAllDevices: 'True'
                     // filters: [
                     //     { namePrefix: 'Steady' },
                     //     { namePrefix: 'steady' },
