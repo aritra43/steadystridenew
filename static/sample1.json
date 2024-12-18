@@ -1,0 +1,12 @@
+{
+    "kwargs": {
+        "tremor": 1,
+        "slowness": 1,
+        "rigidity": 1,
+        "loss_of_smell": 1,
+        "family_history": 1,
+        "num_ancestors": 1,
+        "male_ancestors": 1,
+        "past_head_injury": 1
+    }
+}
