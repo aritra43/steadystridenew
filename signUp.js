@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 import {
   getAuth,
@@ -47,46 +46,42 @@ signUpButton.addEventListener("click", (event) => {
   // Retrieve input values
   const email = document.getElementById("username").value;
   const password = document.getElementById("password").value;
-  const password1 = document.getElementById("password1").value;
+
   if (!email || !password) {
     showMessage("Email and password are required", "signUpMessage");
     return;
   }
-  if (password == password1) {
-    // Create a new user
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log("User created successfully:", user);
 
-        // Prepare user data to store in Firestore
-        const userData = { Email: email, Password: password };
+  // Create a new user
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log("User created successfully:", user);
 
-        // Save user data in Firestore
-        const docRef = doc(db, "users", user.uid);
-        return setDoc(docRef, userData);
-      })
-      .then(() => {
-        showMessage("Account created successfully!", "signUpMessage");
-        alert("Click Ok To Get Redirected");
-        console.log("User data saved to Firestore");
-        window.location.href = "home.html"; // Redirect to home page
-      })
-      .catch((error) => {
-        console.error("Error during sign-up:", error);
-        const errorCode = error.code;
-        if (errorCode === "auth/email-already-in-use") {
-          showMessage("Email already exists", "signUpMessage");
-        } else if (errorCode === "auth/weak-password") {
-          showMessage("Password is too weak", "signUpMessage");
-        } else {
-          showMessage(`Error: ${error.message}`, "signUpMessage");
-        }
-      });
-  } else {
-    document.getElementById("signUpMessage").innerHTML =
-      "Password Does Not Match";
-  }
+      // Prepare user data to store in Firestore
+      const userData = { Email: email, Password: password };
+
+      // Save user data in Firestore
+      const docRef = doc(db, "users", user.uid);
+      return setDoc(docRef, userData);
+    })
+    .then(() => {
+      showMessage("Account created successfully!", "signUpMessage");
+      alert("Click Ok To Get Redirected");
+      console.log("User data saved to Firestore");
+      window.location.href = "home.html"; // Redirect to home page
+    })
+    .catch((error) => {
+      console.error("Error during sign-up:", error);
+      const errorCode = error.code;
+      if (errorCode === "auth/email-already-in-use") {
+        showMessage("Email already exists", "signUpMessage");
+      } else if (errorCode === "auth/weak-password") {
+        showMessage("Password is too weak", "signUpMessage");
+      } else {
+        showMessage(`Error: ${error.message}`, "signUpMessage");
+      }
+    });
 });
 
 const logout = document.querySelector("#new").addEventListener("click", (e) => {
