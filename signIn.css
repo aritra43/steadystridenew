@@ -39,7 +39,7 @@ input {
   border: 0px solid black;
   /* border-radius: 50px; */
   padding: 0.9vw 1.8vw 0.9vw 1.8vw;
-  margin-bottom:1.8vw;
+  margin-bottom: 1.8vw;
   border-bottom: 1px solid rgb(41, 101, 41);
 }
 /* From Uiverse.io by JaydipPrajapati1910 */
@@ -132,8 +132,44 @@ a:hover {
 #newswitch {
   padding-right: 20px;
 }
-#password1{
+#password1 {
   margin-bottom: 20px;
+}
+#box {
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff58;
+  position: relative;
+  left: 0;
+}
+#load {
+  width: 75px;
+  height: 20 px;
+  border: none;
+  margin-top: 20px;
+  display: none;
+}
+#innerbox {
+  width: 10px;
+  height: 5px;
+  background-color: black;
+  animation-name: load;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  position: relative;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes load {
+  from {
+    margin-left: 0;
+    background-color: rgb(41, 101, 41);
+  }
+  to {
+    margin-left: 80%;
+    background-color: rgb(41, 101, 41);
+  }
 }
 @media screen and (max-width: 915px) {
   body {
